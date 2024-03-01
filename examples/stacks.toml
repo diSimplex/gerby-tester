@@ -1,0 +1,17 @@
+# A simple TOML description of how to compare and test a local version of
+# the Stacks project against the definitive external version.
+
+
+# To test a pair of Gerby websites we need four things:
+
+# 1. the url of a local Gerby website (typically run by gerbyRun)
+local_url = "http://localhost:5000"
+
+# 2. the url of an external Gerby website
+external_url = "https://stacks.math.columbia.edu/"
+
+# 3. the list of tags to randomly test
+tags_path = "~/tmp/gerby/stacks-project/tags/tags"
+
+# 4. the percentage of tags to test
+percent_cover = 0.01

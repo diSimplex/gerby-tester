@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# This bash script uses the current working directory to create a simple
+# script to run the gerbyTest command anywhere in a user's
+# workspace.
+
+##########################################################################
+
+installCmd() {
+cmdName=$1
+
+recordcmdScript=$(pwd)/.venv/bin/$cmdName
+
+cat << CMD_SCRIPT > $HOME/.local/bin/$cmdName
+#!/bin/sh
+
+# This shell script was created by the pygments-tools tool
+#       './scripts/installEditableGerbyTesterCommands'
+# script.
+
+exec $recordcmdScript \$@
+CMD_SCRIPT
+
+chmod a+x $HOME/.local/bin/$cmdName
+}
+
+##########################################################################
+
+installCmd gerbyTest
+
+echo ""
+echo "Editable gerbyTest commands have been created"
+echo ""
